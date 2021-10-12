@@ -1,0 +1,211 @@
+/*Existen bibliotecas para hacer codigo*/
+/*el sitio web caniuse.com nos sirve para ver la compatibilidad de nuestros codigos*/
+/*se usa root para definir colores y despues poderlos cambiar mas facil*/
+:root{
+    --blanco: #ffffff;
+    --oscuro: #212121;
+    --primario: #ffbf00;
+    --secundario: #0097A7;
+    --gris: #757575;
+    --degradado: #dfe9f3;
+    --fuenteprincipal: 3.6rem;
+}
+/*Globales*/
+html{
+    font-size: 62.5%;
+    box-sizing: border-box;/*Hack para box model*/
+    scroll-snap-type: y mandatory;/*definir el scroll de nuestra web*/
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+  }
+body{
+    font-size: 16px;
+    font-family: 'Krub', sans-serif;
+    background-image: linear-gradient(to top, var(--degradado) 0%, var(--blanco)100%);/*Para acceder al degradado es necesario acceder al background-image y despues poner 
+    linear-gradient. Seguidamente debemos decirle al ordenador hacia donde va el degradado (en este caso hacia arriba to top) y su porcentaje(ubicacion del color), despues ponemos el primer color y despues el segundo;*/
+}
+.sombra{
+    -webkit-box-shadow-: 0px 5px 15px 0px rgba(112, 112, 112, 0.48);
+    -moz-box-shadow-: 0px 5px 15px 0px rgba(112, 112, 112, 0.48);
+    box-shadow: 0px 5px 15px 0px rgba(112, 112, 112, 0.48);
+    background-color: var(--blanco);
+    padding: 2rem;
+    border-radius: 1rem;
+}
+.button{
+    background-color: var(--secundario);
+    color: var(--blanco);
+    padding: 1rem 3rem;/*padding añade esa cantidad a todos sus lados*/
+    margin-top: 1rem;
+    font-size: 2rem;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;/*uppercase es para poner en mayusculas*/
+    border-radius: .6rem;/*Redondear bordes*/
+    border: none;
+}
+.button:hover{
+    cursor: pointer;
+}
+main h2{
+    color: var(--oscuro);
+}
+.contenedor{
+    max-width: 120rem;
+    margin: 0 auto 0 auto;
+}
+/*utilidades*/
+@media(min-width: 768px){
+    .w-100{
+        width: auto;
+    }
+}
+.flex{
+    display: flex;
+}
+.align-right{
+    justify-content: flex-start;
+}
+
+/*Tipografia*/
+h1{
+    font-size: 3.8rem;
+}
+h2{
+    font-size: 2.8rem;
+}
+h3{
+    font-size: 1.8rem;
+}
+h1,h2,h3{
+    text-align: center;
+}
+
+/*navegacion*/
+nav{
+    font-size: 2rem;
+}
+.nav-bg{
+    background-color: var(--secundario);
+}
+.navegacion-principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+@media (min-width: 480px ) {
+   .navegacion-principal{
+       flex-direction: row;
+       justify-content: space-between;/*dar espacio en medio*/
+   }
+}
+.navegacion-principal a{
+    color: var(--blanco);
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 1rem;
+}
+.navegacion-principal a:hover{/*el pseudocodigo hover se utiliza para editar el boton mientras esta el click por encima de él*/
+    background-color: var(--primario);
+    color: var(--oscuro);
+}
+
+/*imagen*/
+.hero{
+    background-image:url(../Image/hero.jpg);
+    background-repeat: no-repeat;/*para que no se repita la imagen*/
+    background-size: cover;/*para que se adapte a la pantalla*/
+    height: 410px;
+    position: relative;/*position en relative para poder editar la de contenido-hero*/
+    margin-bottom: 2rem;
+}
+.contenido-hero{
+    position: absolute;
+    background-color: rgba( 0, 0, 0, 0.60);/*para poner en transparente ponemos el ultimo valor entre el 1 y el 0*/
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.contenido-hero h2 ,
+.contenido-hero p{
+    color: var(--blanco);
+}
+
+/*Servicios*/         /*Flexbox: el contenido crece automaticamente, CSS Grid: El contenido se agrupa en un area definida*/
+@media(min-width: 480px){/*media querie sirve para hacer responsive nuestro sitio web en este caso es utilizado para que cuando el sitio se muestre en una pantalla de 480px se vea en modo column en vez de row*/
+    .services{
+        display: grid;/*grid al igual que flex se usa para definir el lugar y el tamaño de los elementos en nuestro sitio web pero grid permite columnas y filas al mismo tiempo*/ 
+        grid-template-columns: 1fr 1fr 1fr; /*1fr se utiliza para dividir o crera una fraccion*/ /*si no quieres poner 3 fr o mas puedes utilizar "repeat" y decirle el numero de veces que quiueres que lo repita*/
+        column-gap: 5rem;
+    }
+}
+.servicio{
+    display: flex;
+    flex-direction: column;
+    align-items: center;/*alinear cosas que no sean textos*/
+}
+.servicio h3{
+    color: var(--secundario);
+    font-weight: normal;
+    text-align: center;
+}
+.servicio p{
+    line-height: 2;/*espacio vertical de un texto*/
+}
+.servicio .icons{
+    height: 15rem;
+    width: 15rem;
+    background-color: var(--primario);
+    border-radius: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+/*Contacto*/
+.formulario{
+    background-color: var(--gris);
+    width: min( 60rem, 100%); /*Toma el valor mas pequeño, en caso de que no pueda utliza el otro (como en las fuentes)*/
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+.formulario fieldset{
+    border: none;/*quitar borde gris predeterminado de los formularios*/
+}
+.formulario legend{
+    text-align: center;
+    color: var(--primario);
+    font-weight: bold;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+}
+.campo{
+    margin-bottom: 1rem;/*espacio entre botones*/
+}
+.campo label{
+    color: var(--blanco);
+    font-weight: bold;
+    margin-bottom: .5rem;
+    display: block;
+}
+.campo textarea{
+    height: 20rem;
+}
+.input-text{
+    border: none;
+    width: 100%;
+    padding: 1.5rem;
+    border-radius: 1rem;
+}
+/*footer*/
+footer{
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    color: var(--oscuro)}

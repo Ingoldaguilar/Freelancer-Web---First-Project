@@ -1,0 +1,16 @@
+:root{
+    --blanco: #ffffff;
+    --oscuro: #212121;
+    --primario: #ffbf00;
+    --secundario: #0097A7;
+    --gris: #757575;
+    --degradado: #dfe9f3;
+    --fuenteprincipal: 3.6rem;
+}
+h1{
+    font-family:'Krub', sans-serif;
+}
+.ul-p{
+    display: flex;
+    flex-direction: column;
+}
